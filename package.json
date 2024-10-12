@@ -1,0 +1,16 @@
+{
+  "name": "home-work-express-pgapp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
