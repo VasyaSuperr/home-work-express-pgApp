@@ -1,30 +1,10 @@
-const { Pool } = require('pg');
+const http = require('node:http');
+const app = require('./app');
 
-// TODO: move to config.js /process.evv
-const connectionOptions = {
-  user: 'postgres',
-  password: 'admin',
-  host: 'localhost',
-  port: 5432,
-  database: 'phones_sales',
-};
+const PORT = process.env.PORT ?? 5000;
 
-const pool = new Pool(connectionOptions);
+const httpServer = http.createServer(app);
 
-// Завершити з'єднання з БД при завершенні роботи застосунку
-process.on('beforeExit', () => pool.end());
-
-// test
-(async function () {
-  try {
-    const id = 1;
-    const result = await pool.query(`
-        SELECT *
-        FROM users
-        WHERE id = ${id};
-    `);
-    console.log(result.rows[0]);
-  } catch (error) {
-    console.log(error);
-  }
-})();
+httpServer.listen(PORT, () => {
+  console.log(`Server is listening http://localhost:${PORT}`);
+});
