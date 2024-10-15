@@ -36,3 +36,22 @@ Content-Type: application/json
     "color": "Silver",
     "is_dual_sim": "true"
 }
+
+### 422 {phone}
+PATCH  http://localhost:5000/phones/2
+Content-Type: application/json
+
+{
+    "brand": "Apple",
+    "model": "iPhone 15",
+    "os": "iOS",
+    "screen_size": "6.1",
+    "ram": "dfsd",
+    "storage_capacity": "512",
+    "battery_capacity": "4000",
+    "camera_megapixels": "16",
+    "price": "1000",
+    "release_date": "2022-06-17",
+    "color": "Silver",
+    "is_dual_sim": "true"
+}
