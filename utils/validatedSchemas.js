@@ -36,3 +36,10 @@ module.exports.CREATE_PHONE_VALIDATION_SCHEMA = yup.object({
 module.exports.UPDATE_PHONE_VALIDATION_SCHEMA = yup.object({
   ...phoneValidationRules,
 });
+
+module.exports.PAGE_VALIDATION_SCHEMA = yup.number().min(1).integer();
+module.exports.RESULTS_VALIDATION_SCHEMA = yup
+  .number()
+  .min(5)
+  .max(50)
+  .integer();
