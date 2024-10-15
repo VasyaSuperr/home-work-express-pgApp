@@ -72,3 +72,19 @@ module.exports.deletePhoneById = async (req, res, next) => {
     next(error);
   }
 };
+
+module.exports.getPhonesByUser = async (req, res, next) => {
+  const { userId } = req.params;
+
+  try {
+    const phonesByUser = await Phone.getPhonesByUser(userId);
+
+    if (!phonesByUser || phonesByUser.length === 0) {
+      return next(createHttpError(404, 'User Not Found'));
+    }
+
+    res.status(200).send(phonesByUser);
+  } catch (error) {
+    next(error);
+  }
+};

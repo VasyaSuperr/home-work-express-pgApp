@@ -23,6 +23,7 @@ app.patch(
   phoneControllers.updatePhoneById
 );
 app.delete('/phones/:phoneId', phoneControllers.deletePhoneById);
+app.get('/users/:userId', phoneControllers.getPhonesByUser);
 
 app.use(errorHandlers.errorHandler);
 
