@@ -1,0 +1,2 @@
+### 201 {phones}
+GET http://localhost:5000/phones?page=1&results=5 HTTP/1.1

@@ -1,0 +1,18 @@
+### 201 {phone}
+POST http://localhost:5000/phones HTTP/1.1
+Content-Type: application/json
+
+{
+    "brand": "Apple",
+    "model": "iPhone 16",
+    "os": "iOS",
+    "screen_size": "6.1",
+    "ram": "6",
+    "storage_capacity": "1024",
+    "battery_capacity": "4800",
+    "camera_megapixels": "24",
+    "price": "1500",
+    "release_date": "2024-06-17",
+    "color": "Gold",
+    "is_dual_sim": "true"
+}

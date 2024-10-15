@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const Phone = require('./phone');
 
 const connectionOptions = {
   user: 'postgres',
@@ -12,4 +13,10 @@ const pool = new Pool(connectionOptions);
 
 process.on('beforeExit', () => pool.end());
 
-module.exports = pool;
+const db = {};
+db.pool = pool;
+
+db.Phone = Phone;
+Phone.pool = pool;
+
+module.exports = db;
