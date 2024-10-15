@@ -1,0 +1,5 @@
+### 200 {phones}
+GET http://localhost:5000/users/1/Oppo HTTP/1.1
+
+### 404 {phones}
+GET http://localhost:5000/users/1/Apple HTTP/1.1

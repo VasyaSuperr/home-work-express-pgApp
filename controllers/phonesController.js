@@ -88,3 +88,21 @@ module.exports.getPhonesByUser = async (req, res, next) => {
     next(error);
   }
 };
+
+module.exports.getPhonesByUserByBrand = async (req, res, next) => {
+  const { userId, phoneBrand } = req.params;
+
+  try {
+    const phonesByUser = await Phone.getPhonesByUserByBrand(userId, phoneBrand);
+
+    if (!phonesByUser || phonesByUser.length === 0) {
+      return next(
+        createHttpError(404, 'Phones of the specified brand not found')
+      );
+    }
+
+    res.status(200).send(phonesByUser);
+  } catch (error) {
+    next(error);
+  }
+};

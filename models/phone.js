@@ -169,6 +169,23 @@ class Phone {
       throw error;
     }
   }
+
+  static async getPhonesByUserByBrand (userId, phoneBrand) {
+    try {
+      const query = `
+        SELECT p.*
+        FROM users AS u INNER JOIN orders AS o ON u.id = o.user_id
+                        INNER JOIN phones_to_orders AS p_to_o ON o.id = p_to_o.order_id
+                        INNER JOIN phones AS p ON p_to_o.phone_id = p.id
+        WHERE u.id = $1 AND p.brand = $2
+      `;
+
+      const { rows } = await Phone.pool.query(query, [userId, phoneBrand]);
+      return rows;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = Phone;

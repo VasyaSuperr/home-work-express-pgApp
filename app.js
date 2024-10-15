@@ -24,6 +24,7 @@ app.patch(
 );
 app.delete('/phones/:phoneId', phoneControllers.deletePhoneById);
 app.get('/users/:userId', phoneControllers.getPhonesByUser);
+app.get('/users/:userId/:phoneBrand', phoneControllers.getPhonesByUserByBrand);
 
 app.use(errorHandlers.errorHandler);
 
